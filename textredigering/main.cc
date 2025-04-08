@@ -85,7 +85,8 @@ void remove(std::string const& word, std::vector<std::string> & text)
 
 void replace(std::string const& words, std::vector<std::string> & text)
 {
-    // Får in parameter typ: hej+då byt ut hej mot då boom ANVÄND std::replace
+    auto it = words.find('+');
+    std::replace(text.begin(), text.end(), words.substr(0, it), words.substr(it + 1));
 }
 
 std::map<std::string, int> get_frequency(std::vector<std::string> const& text)
